@@ -3,27 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51C84C9B26DAFFD1376817B5 /* Pods_EksiSozlukApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E85786C2C000A4DC155949B6 /* Pods_EksiSozlukApp.framework */; };
+		9D724B6028E62F2D008ACF29 /* AddContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D724B5F28E62F2D008ACF29 /* AddContentVC.swift */; };
 		9D9B7B5E28E4CEB20070A810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B7B5D28E4CEB20070A810 /* AppDelegate.swift */; };
 		9D9B7B6028E4CEB20070A810 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B7B5F28E4CEB20070A810 /* SceneDelegate.swift */; };
-		9D9B7B6228E4CEB20070A810 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B7B6128E4CEB20070A810 /* ViewController.swift */; };
+		9D9B7B6228E4CEB20070A810 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B7B6128E4CEB20070A810 /* MainVC.swift */; };
 		9D9B7B6528E4CEB20070A810 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9B7B6328E4CEB20070A810 /* Main.storyboard */; };
 		9D9B7B6728E4CEB30070A810 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D9B7B6628E4CEB30070A810 /* Assets.xcassets */; };
 		9D9B7B6A28E4CEB30070A810 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9B7B6828E4CEB30070A810 /* LaunchScreen.storyboard */; };
+		9D9B7B7228E4D0CC0070A810 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D9B7B7128E4D0CC0070A810 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45CC0B5A913587E1F885EB8C /* Pods-EksiSozlukApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EksiSozlukApp.release.xcconfig"; path = "Target Support Files/Pods-EksiSozlukApp/Pods-EksiSozlukApp.release.xcconfig"; sourceTree = "<group>"; };
+		9D724B5F28E62F2D008ACF29 /* AddContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContentVC.swift; sourceTree = "<group>"; };
 		9D9B7B5A28E4CEB20070A810 /* EksiSozlukApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EksiSozlukApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D9B7B5D28E4CEB20070A810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D9B7B5F28E4CEB20070A810 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9D9B7B6128E4CEB20070A810 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9D9B7B6128E4CEB20070A810 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		9D9B7B6428E4CEB20070A810 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D9B7B6628E4CEB30070A810 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D9B7B6928E4CEB30070A810 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D9B7B6B28E4CEB30070A810 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D9B7B7128E4D0CC0070A810 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E85786C2C000A4DC155949B6 /* Pods_EksiSozlukApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EksiSozlukApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EADC9E99698122290096AA68 /* Pods-EksiSozlukApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EksiSozlukApp.debug.xcconfig"; path = "Target Support Files/Pods-EksiSozlukApp/Pods-EksiSozlukApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,51 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51C84C9B26DAFFD1376817B5 /* Pods_EksiSozlukApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C5AB61D7EF9D87CF7EDC15B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E85786C2C000A4DC155949B6 /* Pods_EksiSozlukApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9D724B5C28E62E99008ACF29 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9D9B7B6128E4CEB20070A810 /* MainVC.swift */,
+				9D724B5F28E62F2D008ACF29 /* AddContentVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9D724B5D28E62EA0008ACF29 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9D724B5E28E62EA5008ACF29 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9D9B7B5128E4CEB20070A810 = {
 			isa = PBXGroup;
 			children = (
 				9D9B7B5C28E4CEB20070A810 /* EksiSozlukApp */,
 				9D9B7B5B28E4CEB20070A810 /* Products */,
+				BD79FFC7A6F00B7202FD8406 /* Pods */,
+				6C5AB61D7EF9D87CF7EDC15B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +98,27 @@
 		9D9B7B5C28E4CEB20070A810 /* EksiSozlukApp */ = {
 			isa = PBXGroup;
 			children = (
+				9D724B5E28E62EA5008ACF29 /* Model */,
+				9D724B5D28E62EA0008ACF29 /* View */,
+				9D724B5C28E62E99008ACF29 /* Controller */,
 				9D9B7B5D28E4CEB20070A810 /* AppDelegate.swift */,
 				9D9B7B5F28E4CEB20070A810 /* SceneDelegate.swift */,
-				9D9B7B6128E4CEB20070A810 /* ViewController.swift */,
 				9D9B7B6328E4CEB20070A810 /* Main.storyboard */,
 				9D9B7B6628E4CEB30070A810 /* Assets.xcassets */,
 				9D9B7B6828E4CEB30070A810 /* LaunchScreen.storyboard */,
+				9D9B7B7128E4D0CC0070A810 /* GoogleService-Info.plist */,
 				9D9B7B6B28E4CEB30070A810 /* Info.plist */,
 			);
 			path = EksiSozlukApp;
+			sourceTree = "<group>";
+		};
+		BD79FFC7A6F00B7202FD8406 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EADC9E99698122290096AA68 /* Pods-EksiSozlukApp.debug.xcconfig */,
+				45CC0B5A913587E1F885EB8C /* Pods-EksiSozlukApp.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D9B7B6E28E4CEB30070A810 /* Build configuration list for PBXNativeTarget "EksiSozlukApp" */;
 			buildPhases = (
+				51890BD2C7CBB8F695F16F41 /* [CP] Check Pods Manifest.lock */,
 				9D9B7B5628E4CEB20070A810 /* Sources */,
 				9D9B7B5728E4CEB20070A810 /* Frameworks */,
 				9D9B7B5828E4CEB20070A810 /* Resources */,
+				3A5C3EEE06CC5E79B2C70609 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -103,7 +159,7 @@
 				};
 			};
 			buildConfigurationList = 9D9B7B5528E4CEB20070A810 /* Build configuration list for PBXProject "EksiSozlukApp" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -126,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D9B7B6A28E4CEB30070A810 /* LaunchScreen.storyboard in Resources */,
+				9D9B7B7228E4D0CC0070A810 /* GoogleService-Info.plist in Resources */,
 				9D9B7B6728E4CEB30070A810 /* Assets.xcassets in Resources */,
 				9D9B7B6528E4CEB20070A810 /* Main.storyboard in Resources */,
 			);
@@ -133,14 +190,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3A5C3EEE06CC5E79B2C70609 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EksiSozlukApp/Pods-EksiSozlukApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EksiSozlukApp/Pods-EksiSozlukApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EksiSozlukApp/Pods-EksiSozlukApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		51890BD2C7CBB8F695F16F41 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EksiSozlukApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9D9B7B5628E4CEB20070A810 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D9B7B6228E4CEB20070A810 /* ViewController.swift in Sources */,
+				9D9B7B6228E4CEB20070A810 /* MainVC.swift in Sources */,
 				9D9B7B5E28E4CEB20070A810 /* AppDelegate.swift in Sources */,
 				9D9B7B6028E4CEB20070A810 /* SceneDelegate.swift in Sources */,
+				9D724B6028E62F2D008ACF29 /* AddContentVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +382,7 @@
 		};
 		9D9B7B6F28E4CEB30070A810 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EADC9E99698122290096AA68 /* Pods-EksiSozlukApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -293,8 +394,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,14 +403,18 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mertgaygusuz.EksiSozlukApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		9D9B7B7028E4CEB30070A810 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45CC0B5A913587E1F885EB8C /* Pods-EksiSozlukApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -321,8 +426,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +435,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mertgaygusuz.EksiSozlukApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

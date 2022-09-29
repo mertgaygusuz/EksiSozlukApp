@@ -1,24 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0gn-FB-qFt">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Ekşi Sözlük-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="EksiSozlukApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Ekşi Sözlük" id="7aw-0c-F6g">
+                        <barButtonItem key="rightBarButtonItem" image="addEntry" id="At6-7l-jra">
+                            <connections>
+                                <segue destination="ift-Zu-550" kind="show" id="ich-qa-sRk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1060" y="-28.436018957345969"/>
+        </scene>
+        <!--Add ContentVC-->
+        <scene sceneID="vWG-q3-4Vh">
+            <objects>
+                <viewController id="ift-Zu-550" customClass="AddContentVC" customModule="EksiSozlukApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IFN-U7-hrI">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="L98-hw-Edj">
+                                <rect key="frame" x="20" y="120" width="353" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="dYe-s0-Vup"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Eğlence"/>
+                                    <segment title="Absürt"/>
+                                    <segment title="Spor"/>
+                                </segments>
+                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                <connections>
+                                    <action selector="segmentCategoryChanged:" destination="ift-Zu-550" eventType="valueChanged" id="OzH-nP-r1H"/>
+                                </connections>
+                            </segmentedControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="W1c-y7-t6X">
+                                <rect key="frame" x="20" y="201.66666666666663" width="353" height="130"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.34302566225165559" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="atH-co-1vH"/>
+                                </constraints>
+                                <string key="text">Swift, Apple tarafından iOS ve macOS platformlarına iOS ve Mac uygulamaları geliştirmek için oluşturulan, derlenerek çalışan güçlü ve kullanımı kolay, nesne yönelimli bir programlama dili. İlk olarak WWDC 2014 konferansında duyurulmuştur.</string>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dt-dB-W3k">
+                                <rect key="frame" x="146.66666666666666" y="346.66666666666669" width="100" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="3th-AY-WBt"/>
+                                    <constraint firstAttribute="height" constant="40" id="FKZ-kA-jNv"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Paylaş">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnSharedPressed:" destination="ift-Zu-550" eventType="touchUpInside" id="Iy2-Y5-4ex"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kullanıcı adı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xLg-mP-hDB">
+                                <rect key="frame" x="20" y="168" width="353" height="18.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4LI-1O-ntF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="W1c-y7-t6X" firstAttribute="top" secondItem="xLg-mP-hDB" secondAttribute="bottom" constant="15" id="9LP-LE-ieK"/>
+                            <constraint firstItem="L98-hw-Edj" firstAttribute="leading" secondItem="4LI-1O-ntF" secondAttribute="leading" constant="20" id="Gwg-6A-a2w"/>
+                            <constraint firstItem="4dt-dB-W3k" firstAttribute="centerX" secondItem="IFN-U7-hrI" secondAttribute="centerX" id="Isn-Lx-G8t"/>
+                            <constraint firstItem="xLg-mP-hDB" firstAttribute="trailing" secondItem="L98-hw-Edj" secondAttribute="trailing" id="RbV-90-CYB"/>
+                            <constraint firstItem="4dt-dB-W3k" firstAttribute="top" secondItem="W1c-y7-t6X" secondAttribute="bottom" constant="15" id="UBa-TD-EIc"/>
+                            <constraint firstItem="W1c-y7-t6X" firstAttribute="trailing" secondItem="xLg-mP-hDB" secondAttribute="trailing" id="cum-IZ-Pex"/>
+                            <constraint firstItem="4LI-1O-ntF" firstAttribute="trailing" secondItem="L98-hw-Edj" secondAttribute="trailing" constant="20" id="d3p-qR-ir2"/>
+                            <constraint firstItem="W1c-y7-t6X" firstAttribute="leading" secondItem="xLg-mP-hDB" secondAttribute="leading" id="fo2-Su-BNW"/>
+                            <constraint firstItem="xLg-mP-hDB" firstAttribute="top" secondItem="L98-hw-Edj" secondAttribute="bottom" constant="15" id="iOB-Sd-stz"/>
+                            <constraint firstItem="xLg-mP-hDB" firstAttribute="leading" secondItem="L98-hw-Edj" secondAttribute="leading" id="rc7-ku-7OL"/>
+                            <constraint firstItem="L98-hw-Edj" firstAttribute="top" secondItem="4LI-1O-ntF" secondAttribute="top" constant="17" id="yl8-mk-Nmu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2R8-ug-1Ci"/>
+                    <connections>
+                        <outlet property="btnShared" destination="4dt-dB-W3k" id="3Y5-z3-xIt"/>
+                        <outlet property="segmentCategories" destination="L98-hw-Edj" id="TY4-AI-KTp"/>
+                        <outlet property="txtContent" destination="W1c-y7-t6X" id="wJA-ab-e2p"/>
+                        <outlet property="txtUserName" destination="xLg-mP-hDB" id="4vW-G5-eWv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="chl-z5-M8Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1887.6923076923076" y="-30.568720379146917"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zD9-6C-rfS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0gn-FB-qFt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tlr-UB-g1h">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemGreenColor"/>
+                        <color key="barTintColor" systemColor="tertiarySystemBackgroundColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="systemGreenColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wbt-jJ-cYc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Yv-Me-1pg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.76923076923077" y="-28.436018957345969"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="addEntry" width="21" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
