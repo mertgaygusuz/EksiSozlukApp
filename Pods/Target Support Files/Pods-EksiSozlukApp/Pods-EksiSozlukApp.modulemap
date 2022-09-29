@@ -1,0 +1,6 @@
+framework module Pods_EksiSozlukApp {
+  umbrella header "Pods-EksiSozlukApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
