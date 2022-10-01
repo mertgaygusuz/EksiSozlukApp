@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		51C84C9B26DAFFD1376817B5 /* Pods_EksiSozlukApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E85786C2C000A4DC155949B6 /* Pods_EksiSozlukApp.framework */; };
 		9D724B6028E62F2D008ACF29 /* AddContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D724B5F28E62F2D008ACF29 /* AddContentVC.swift */; };
+		9D91801528E85EA6009F2939 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D91801428E85EA6009F2939 /* Content.swift */; };
+		9D91801728E86058009F2939 /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D91801628E86058009F2939 /* ContentCell.swift */; };
 		9D9B7B5E28E4CEB20070A810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B7B5D28E4CEB20070A810 /* AppDelegate.swift */; };
 		9D9B7B6028E4CEB20070A810 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B7B5F28E4CEB20070A810 /* SceneDelegate.swift */; };
 		9D9B7B6228E4CEB20070A810 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B7B6128E4CEB20070A810 /* MainVC.swift */; };
@@ -16,11 +18,15 @@
 		9D9B7B6728E4CEB30070A810 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D9B7B6628E4CEB30070A810 /* Assets.xcassets */; };
 		9D9B7B6A28E4CEB30070A810 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D9B7B6828E4CEB30070A810 /* LaunchScreen.storyboard */; };
 		9D9B7B7228E4D0CC0070A810 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D9B7B7128E4D0CC0070A810 /* GoogleService-Info.plist */; };
+		9DEAB81D28E8544400D610C2 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEAB81C28E8544400D610C2 /* Categories.swift */; };
+		9DEAB81F28E8564600D610C2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEAB81E28E8564600D610C2 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		45CC0B5A913587E1F885EB8C /* Pods-EksiSozlukApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EksiSozlukApp.release.xcconfig"; path = "Target Support Files/Pods-EksiSozlukApp/Pods-EksiSozlukApp.release.xcconfig"; sourceTree = "<group>"; };
 		9D724B5F28E62F2D008ACF29 /* AddContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContentVC.swift; sourceTree = "<group>"; };
+		9D91801428E85EA6009F2939 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		9D91801628E86058009F2939 /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 		9D9B7B5A28E4CEB20070A810 /* EksiSozlukApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EksiSozlukApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D9B7B5D28E4CEB20070A810 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D9B7B5F28E4CEB20070A810 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +36,8 @@
 		9D9B7B6928E4CEB30070A810 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D9B7B6B28E4CEB30070A810 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D9B7B7128E4D0CC0070A810 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9DEAB81C28E8544400D610C2 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		9DEAB81E28E8564600D610C2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E85786C2C000A4DC155949B6 /* Pods_EksiSozlukApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EksiSozlukApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EADC9E99698122290096AA68 /* Pods-EksiSozlukApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EksiSozlukApp.debug.xcconfig"; path = "Target Support Files/Pods-EksiSozlukApp/Pods-EksiSozlukApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +74,7 @@
 		9D724B5D28E62EA0008ACF29 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9D91801628E86058009F2939 /* ContentCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -73,6 +82,9 @@
 		9D724B5E28E62EA5008ACF29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9DEAB81C28E8544400D610C2 /* Categories.swift */,
+				9DEAB81E28E8564600D610C2 /* Constants.swift */,
+				9D91801428E85EA6009F2939 /* Content.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,8 +251,12 @@
 			files = (
 				9D9B7B6228E4CEB20070A810 /* MainVC.swift in Sources */,
 				9D9B7B5E28E4CEB20070A810 /* AppDelegate.swift in Sources */,
+				9D91801528E85EA6009F2939 /* Content.swift in Sources */,
+				9DEAB81D28E8544400D610C2 /* Categories.swift in Sources */,
 				9D9B7B6028E4CEB20070A810 /* SceneDelegate.swift in Sources */,
 				9D724B6028E62F2D008ACF29 /* AddContentVC.swift in Sources */,
+				9DEAB81F28E8564600D610C2 /* Constants.swift in Sources */,
+				9D91801728E86058009F2939 /* ContentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

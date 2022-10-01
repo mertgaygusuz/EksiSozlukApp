@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class AddContentVC: UIViewController {
     
@@ -20,6 +22,8 @@ class AddContentVC: UIViewController {
     @IBOutlet weak var btnShared: UIButton!
     
     let placeholderText = "Fikrinizi belirtin..."
+    var selectedCategory = "Eğlence"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +39,41 @@ class AddContentVC: UIViewController {
 
     @IBAction func segmentCategoryChanged(_ sender: Any) {
         
+        switch segmentCategories.selectedSegmentIndex {
+            case 0 :
+                selectedCategory = Categories.Eglence.rawValue
+            case 1 :
+                selectedCategory = Categories.Gundem.rawValue
+            case 2 :
+                selectedCategory = Categories.Spor.rawValue
+            case 3 :
+                selectedCategory = Categories.Populer.rawValue
+            default :
+                selectedCategory = Categories.Eglence.rawValue
+        }
     }
     
     @IBAction func btnSharedPressed(_ sender: Any) {
+        
+        guard let userName = txtUserName.text else { return }
+        
+        Firestore.firestore().collection(Contents).addDocument(data: [
+            Category : selectedCategory,
+            NumberOfLikes : 0,
+            NumberOfComments : 0,
+            ContentText : txtContent.text,
+            DateOfUpload : FieldValue.serverTimestamp(),
+            UserName : txtUserName.text
+        ]) { (error) in
+            
+            if let error = error {
+                print("Document Hatası: \(error.localizedDescription)")
+            } else {
+                self.navigationController?.popViewController(animated: true)
+            }
+            
+        }
+        
         
     }
     
