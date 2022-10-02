@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 class ContentCell: UITableViewCell {
     
@@ -16,17 +18,35 @@ class ContentCell: UITableViewCell {
     @IBOutlet weak var imgLike: UIImageView!
     @IBOutlet weak var lblNumberOfLikes: UILabel!
     
+    var selectedContent : Content!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imgLikeTapped))
+        imgLike.addGestureRecognizer(tap)
+        imgLike.isUserInteractionEnabled = true
     }
 
-    func setView(content: Content) {
+    @objc func imgLikeTapped() {
         
+        //Firestore.firestore().collection(Contents).document(selectedContent.documentId).setData(
+            //[NumberOfLikes : selectedContent.numberOfLikes + 1], merge: true)
+        
+        Firestore.firestore().document("Contents/\(selectedContent.documentId!)").updateData(
+            [NumberOfLikes : selectedContent.numberOfLikes + 1])
+    }
+    
+    func setView(content: Content) {
+        selectedContent = content
         lblUserName.text = content.userName
         lblContentText.text = content.contentText
         lblNumberOfLikes.text = "\(content.numberOfLikes ?? 0)"
+        
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "dd.MM.YYYY, hh:mm"
+        let dateOfUpload = dateFormat.string(from: content.dateOfUpload)
+        lblDateOfUpload.text = dateOfUpload
     }
 
 }

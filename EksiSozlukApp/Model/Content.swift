@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestore
 
 class Content {
     
@@ -23,5 +25,28 @@ class Content {
         self.numberOfComments = numberOfComments
         self.numberOfLikes = numberOfLikes
         self.documentId = documentId
+    }
+    
+    class func fetchContent(snapshot : QuerySnapshot?) -> [Content] {
+        
+        var contents = [Content]()
+        
+        guard let snap = snapshot else { return contents}
+        for document in snap.documents {
+            
+            let data = document.data()
+            
+            let userName = data[UserName] as? String ?? "Ziyaretçi"
+            let ts = data[DateOfUpload] as? Timestamp ?? Timestamp()
+            let dateOfUpload = ts.dateValue()
+            let contentText = data[ContentText] as? String ?? ""
+            let numberOfComments = data[NumberOfComments] as? Int ?? 0
+            let numberOfLikes = data[NumberOfLikes] as? Int ?? 0
+            let documentId = document.documentID
+            
+            let newContent = Content(userName: userName, dateOfUpload: dateOfUpload, contentText: contentText, numberOfComments: numberOfComments, numberOfLikes: numberOfLikes, documentId: documentId)
+            contents.append(newContent)
+        }
+        return contents
     }
 }

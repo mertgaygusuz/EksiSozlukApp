@@ -29,8 +29,9 @@
                                     <segment title="Popüler"/>
                                 </segments>
                                 <color key="tintColor" systemColor="systemGreenColor"/>
-                                <color key="selectedSegmentTintColor" systemColor="systemGreenColor"/>
+                                <color key="selectedSegmentTintColor" red="0.56078433989999998" green="0.74901962280000001" blue="0.36078432199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
+                                    <action selector="categoryChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="cmb-Ug-L92"/>
                                     <action selector="segmentCategoryChanged:" destination="ift-Zu-550" eventType="valueChanged" id="oGQ-mf-G6G"/>
                                 </connections>
                             </segmentedControl>
@@ -45,13 +46,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kullanıcı Adı" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlj-rW-bkc">
-                                                    <rect key="frame" x="19.999999999999993" y="10.999999999999998" width="94.333333333333314" height="20.333333333333329"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Kullanıcı Adı" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlj-rW-bkc">
+                                                    <rect key="frame" x="19.999999999999993" y="11" width="94.333333333333314" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tarih" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWz-CU-SJ4">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tarih" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWz-CU-SJ4">
                                                     <rect key="frame" x="122.33333333333333" y="12.666666666666664" width="31.666666666666671" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -71,7 +72,7 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZt-6W-ICR">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Entry" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZt-6W-ICR">
                                                     <rect key="frame" x="20" y="39.333333333333336" width="353" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -82,6 +83,7 @@
                                                 <constraint firstItem="MZt-6W-ICR" firstAttribute="top" secondItem="zlj-rW-bkc" secondAttribute="bottom" constant="8" id="9VV-y4-BXs"/>
                                                 <constraint firstItem="BWz-CU-SJ4" firstAttribute="centerY" secondItem="zlj-rW-bkc" secondAttribute="centerY" id="CM3-Lv-BoW"/>
                                                 <constraint firstItem="fc9-y5-RBQ" firstAttribute="leading" secondItem="C7o-Yf-lwz" secondAttribute="leadingMargin" constant="2" id="MgO-AU-zgH"/>
+                                                <constraint firstItem="fc9-y5-RBQ" firstAttribute="top" secondItem="MZt-6W-ICR" secondAttribute="bottom" constant="8.5" id="Xsv-CU-ltF"/>
                                                 <constraint firstItem="zlj-rW-bkc" firstAttribute="top" secondItem="C7o-Yf-lwz" secondAttribute="topMargin" id="Z7c-cw-WT6"/>
                                                 <constraint firstItem="zlj-rW-bkc" firstAttribute="leading" secondItem="C7o-Yf-lwz" secondAttribute="leadingMargin" id="c6Q-F9-0fy"/>
                                                 <constraint firstItem="BWz-CU-SJ4" firstAttribute="leading" secondItem="zlj-rW-bkc" secondAttribute="trailing" constant="8" id="iHr-1F-45O"/>
@@ -150,7 +152,7 @@
                                     <segment title="Popüler"/>
                                 </segments>
                                 <color key="tintColor" systemColor="systemGreenColor"/>
-                                <color key="selectedSegmentTintColor" systemColor="systemGreenColor"/>
+                                <color key="selectedSegmentTintColor" red="0.56078433989999998" green="0.74901962280000001" blue="0.36078432199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="segmentCategoryChanged:" destination="ift-Zu-550" eventType="valueChanged" id="OzH-nP-r1H"/>
                                 </connections>
@@ -168,7 +170,7 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dt-dB-W3k">
                                 <rect key="frame" x="146.66666666666666" y="346.66666666666669" width="100" height="40"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="backgroundColor" red="0.56078433989999998" green="0.74901962280000001" blue="0.36078432199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="3th-AY-WBt"/>
                                     <constraint firstAttribute="height" constant="40" id="FKZ-kA-jNv"/>
@@ -224,10 +226,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tlr-UB-g1h">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="systemGreenColor"/>
+                        <color key="tintColor" red="0.56078433989999998" green="0.74901962280000001" blue="0.36078432199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" systemColor="systemGreenColor"/>
+                            <color key="textColor" red="0.56078433989999998" green="0.74901962280000001" blue="0.36078432199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
