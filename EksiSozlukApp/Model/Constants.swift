@@ -14,3 +14,8 @@ let NumberOfLikes = "NumberOfLikes"
 let ContentText = "ContentText"
 let UserName = "UserName"
 let DateOfUpload = "DateOfUpload"
+
+
+let Users = "Users"
+let UserNameRef = "UserName"
+let UserCreationTime = "CreationTime"
