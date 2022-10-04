@@ -17,6 +17,7 @@ class ContentCell: UITableViewCell {
     @IBOutlet weak var lblDateOfUpload: UILabel!
     @IBOutlet weak var imgLike: UIImageView!
     @IBOutlet weak var lblNumberOfLikes: UILabel!
+    @IBOutlet weak var lblNumberOfComments: UILabel!
     
     var selectedContent : Content!
     
@@ -47,6 +48,8 @@ class ContentCell: UITableViewCell {
         dateFormat.dateFormat = "dd.MM.YYYY, hh:mm"
         let dateOfUpload = dateFormat.string(from: content.dateOfUpload)
         lblDateOfUpload.text = dateOfUpload
+        
+        lblNumberOfComments.text = "\(content.numberOfComments ?? 0)"
     }
 
 }

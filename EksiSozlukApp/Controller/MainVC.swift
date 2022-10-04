@@ -8,21 +8,19 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import FirebaseAuth
 
 class MainVC: UIViewController {
     
     
     @IBOutlet weak var segmentCategories: UISegmentedControl!
-    
     @IBOutlet weak var tableView: UITableView!
     
     private var contents = [Content]()
-    
     private var contentsCollectionRef : CollectionReference!
-    
     private var contentsListener : ListenerRegistration!
-    
     private var selectedCategory = Categories.Eglence.rawValue
+    private var listenerHandle : AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +31,24 @@ class MainVC: UIViewController {
         contentsCollectionRef = Firestore.firestore().collection(Contents)
     }
 
-
+    override func viewWillDisappear(_ animated: Bool) {
+        if contentsListener != nil {
+            contentsListener.remove()
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
-        setListener()
+        
+        listenerHandle = Auth.auth().addStateDidChangeListener({ (auth, user) in
+            
+            if user == nil {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+                self.present(loginVC, animated: true, completion: nil)
+            } else {
+                self.setListener()
+            }
+        })
     }
     
     func setListener() {
@@ -72,10 +85,6 @@ class MainVC: UIViewController {
         
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        contentsListener.remove()
-    }
-    
     @IBAction func categoryChanged(_ sender: Any) {
         
         switch segmentCategories.selectedSegmentIndex {
@@ -95,6 +104,28 @@ class MainVC: UIViewController {
     }
     
     
+    @IBAction func btnLogOutPressed(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        
+        do {
+            try firebaseAuth.signOut()
+        } catch let sessionError as NSError{
+            debugPrint("Oturum kapatılamadı: \(sessionError.localizedDescription)")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "CommentsSegue" {
+            
+            if let targetVC = segue.destination as? CommentsVC {
+                
+                if let selectedContent = sender as? Content {
+                    targetVC.selectedContent = selectedContent
+                }
+            }
+        }
+    }
 }
 
 extension MainVC : UITableViewDelegate, UITableViewDataSource {
@@ -111,6 +142,11 @@ extension MainVC : UITableViewDelegate, UITableViewDataSource {
         } else {
             return UITableViewCell()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "CommentsSegue", sender: contents[indexPath.row])
     }
     
     

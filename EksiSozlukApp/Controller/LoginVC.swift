@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginVC: UIViewController {
     
@@ -34,13 +35,20 @@ class LoginVC: UIViewController {
     
     
     @IBAction func btnLoginPressed(_ sender: Any) {
+        
+        guard let emailAdress = txtEmailAdress.text,
+              let password = txtPassword.text else { return }
+        
+        Auth.auth().signIn(withEmail: emailAdress, password: password) { (user, error) in
+            
+            if let error = error {
+                debugPrint("Oturum açılamadı: \(error.localizedDescription)")
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
-    
-    @IBAction func btnRegisterPressed(_ sender: Any) {
-    }
-    
-
     
 
 }

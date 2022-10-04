@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="szT-81-1BZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0gn-FB-qFt">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -11,7 +11,7 @@
         <!--LoginVC-->
         <scene sceneID="s5v-A0-EsS">
             <objects>
-                <viewController id="yIL-58-7sD" customClass="LoginVC" customModule="EksiSozlukApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="yIL-58-7sD" customClass="LoginVC" customModule="EksiSozlukApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DyV-j8-mRM">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +67,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Kayıt Ol"/>
                                 <connections>
-                                    <action selector="btnRegisterPressed:" destination="yIL-58-7sD" eventType="touchUpInside" id="hke-g5-apC"/>
+                                    <segue destination="szT-81-1BZ" kind="show" id="foK-xd-Bu1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -97,14 +97,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o2y-me-KSL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="-713"/>
+            <point key="canvasLocation" x="1037" y="-1063"/>
         </scene>
         <!--Create UserVC-->
         <scene sceneID="0Rc-FQ-yWw">
             <objects>
                 <viewController id="szT-81-1BZ" customClass="CreateUserVC" customModule="EksiSozlukApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nLQ-a1-23i">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Emailinizi giriniz" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="deg-ph-w73">
@@ -184,6 +184,7 @@
                             <constraint firstItem="deg-ph-w73" firstAttribute="top" secondItem="kcp-3q-g17" secondAttribute="top" constant="50" id="xCY-sE-Yjo"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="eDU-tc-aEB"/>
                     <connections>
                         <outlet property="btnBack" destination="9Vq-mK-mwS" id="YHq-iL-nBt"/>
                         <outlet property="btnRegister" destination="cIe-7k-7ot" id="zbj-xc-uE0"/>
@@ -194,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kgh-wS-cRc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1906" y="-713"/>
+            <point key="canvasLocation" x="1886" y="-1063"/>
         </scene>
         <!--Ekşi Sözlük-->
         <scene sceneID="tne-QT-ifu">
@@ -247,15 +248,28 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="fc9-y5-RBQ">
-                                                    <rect key="frame" x="22.000000000000004" y="66.333333333333329" width="46.333333333333343" height="20.333333333333329"/>
+                                                    <rect key="frame" x="22.000000000000007" y="62.666666666666657" width="91.666666666666686" height="24"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selectedStar" translatesAutoresizingMaskIntoConstraints="NO" id="4eV-oM-21T">
-                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20.333333333333332"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="24"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2h-Xx-zne">
-                                                            <rect key="frame" x="26" y="0.0" width="20.333333333333329" height="20.333333333333332"/>
+                                                            <rect key="frame" x="26" y="0.0" width="20.333333333333329" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comment" translatesAutoresizingMaskIntoConstraints="NO" id="B0h-nL-tKE">
+                                                            <rect key="frame" x="52.333333333333329" y="0.0" width="24" height="24"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="24" id="PUq-CM-1h2"/>
+                                                                <constraint firstAttribute="height" constant="24" id="ghw-kk-mjY"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmW-Ip-XNW">
+                                                            <rect key="frame" x="82.333333333333329" y="0.0" width="9.3333333333333286" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -284,6 +298,7 @@
                                             <outlet property="imgLike" destination="4eV-oM-21T" id="ILM-Ad-Ary"/>
                                             <outlet property="lblContentText" destination="MZt-6W-ICR" id="NGg-UV-Y1h"/>
                                             <outlet property="lblDateOfUpload" destination="BWz-CU-SJ4" id="t56-j8-fR1"/>
+                                            <outlet property="lblNumberOfComments" destination="zmW-Ip-XNW" id="O6P-U3-Zb9"/>
                                             <outlet property="lblNumberOfLikes" destination="r2h-Xx-zne" id="lA6-2q-l3a"/>
                                             <outlet property="lblUserName" destination="zlj-rW-bkc" id="0Mq-Qr-d3Y"/>
                                         </connections>
@@ -305,6 +320,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ekşi Sözlük" id="7aw-0c-F6g">
+                        <barButtonItem key="leftBarButtonItem" title="Çıkış" id="QSa-hK-MBf">
+                            <connections>
+                                <action selector="btnLogOutPressed:" destination="BYZ-38-t0r" id="t6T-7y-OGd"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="addEntry" id="At6-7l-jra">
                             <connections>
                                 <segue destination="ift-Zu-550" kind="show" id="ich-qa-sRk"/>
@@ -314,11 +334,28 @@
                     <connections>
                         <outlet property="segmentCategories" destination="LLL-WR-qpQ" id="aMu-5S-8Z5"/>
                         <outlet property="tableView" destination="SZ6-Te-zpz" id="s8X-qg-nki"/>
+                        <segue destination="IZA-2Q-UAe" kind="show" identifier="CommentsSegue" id="bGp-T1-cPI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1057.2519083969464" y="-28.87323943661972"/>
+        </scene>
+        <!--CommentsVC-->
+        <scene sceneID="UXD-JE-IYW">
+            <objects>
+                <viewController id="IZA-2Q-UAe" customClass="CommentsVC" customModule="EksiSozlukApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="owV-42-312">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="qBC-V2-GHt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fsK-8N-M3w"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fdV-jA-krQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1885" y="286"/>
         </scene>
         <!--Add ContentVC-->
         <scene sceneID="vWG-q3-4Vh">
@@ -404,7 +441,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chl-z5-M8Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1887.6923076923076" y="-30.568720379146917"/>
+            <point key="canvasLocation" x="1886" y="-370"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zD9-6C-rfS">
@@ -432,6 +469,7 @@
     </scenes>
     <resources>
         <image name="addEntry" width="21" height="24"/>
+        <image name="comment" width="26" height="22"/>
         <image name="selectedStar" width="20" height="19"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
