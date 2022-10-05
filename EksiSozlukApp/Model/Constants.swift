@@ -19,3 +19,6 @@ let DateOfUpload = "DateOfUpload"
 let Users = "Users"
 let UserNameRef = "UserName"
 let UserCreationTime = "CreationTime"
+
+let Comments = "Comments"
+let CommentText = "CommentText"

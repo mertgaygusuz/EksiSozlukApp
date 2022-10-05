@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		51C84C9B26DAFFD1376817B5 /* Pods_EksiSozlukApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E85786C2C000A4DC155949B6 /* Pods_EksiSozlukApp.framework */; };
 		9D0AAD1428ECABEE0079A545 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0AAD1328ECABEE0079A545 /* CommentsVC.swift */; };
+		9D46BC7428EE055B00E2311F /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46BC7328EE055B00E2311F /* CommentCell.swift */; };
+		9D46BC7628EE060E00E2311F /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46BC7528EE060E00E2311F /* Comment.swift */; };
 		9D724B6028E62F2D008ACF29 /* AddContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D724B5F28E62F2D008ACF29 /* AddContentVC.swift */; };
 		9D91801528E85EA6009F2939 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D91801428E85EA6009F2939 /* Content.swift */; };
 		9D91801728E86058009F2939 /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D91801628E86058009F2939 /* ContentCell.swift */; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		45CC0B5A913587E1F885EB8C /* Pods-EksiSozlukApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EksiSozlukApp.release.xcconfig"; path = "Target Support Files/Pods-EksiSozlukApp/Pods-EksiSozlukApp.release.xcconfig"; sourceTree = "<group>"; };
 		9D0AAD1328ECABEE0079A545 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
+		9D46BC7328EE055B00E2311F /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		9D46BC7528EE060E00E2311F /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		9D724B5F28E62F2D008ACF29 /* AddContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContentVC.swift; sourceTree = "<group>"; };
 		9D91801428E85EA6009F2939 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		9D91801628E86058009F2939 /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				9D91801628E86058009F2939 /* ContentCell.swift */,
+				9D46BC7328EE055B00E2311F /* CommentCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -94,6 +99,7 @@
 				9DEAB81C28E8544400D610C2 /* Categories.swift */,
 				9DEAB81E28E8564600D610C2 /* Constants.swift */,
 				9D91801428E85EA6009F2939 /* Content.swift */,
+				9D46BC7528EE060E00E2311F /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -266,9 +272,11 @@
 				9DEAB81D28E8544400D610C2 /* Categories.swift in Sources */,
 				9D9B7B6028E4CEB20070A810 /* SceneDelegate.swift in Sources */,
 				9DFC4CC328EB4BF9007F8897 /* LoginVC.swift in Sources */,
+				9D46BC7628EE060E00E2311F /* Comment.swift in Sources */,
 				9D724B6028E62F2D008ACF29 /* AddContentVC.swift in Sources */,
 				9DEAB81F28E8564600D610C2 /* Constants.swift in Sources */,
 				9D91801728E86058009F2939 /* ContentCell.swift in Sources */,
+				9D46BC7428EE055B00E2311F /* CommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
