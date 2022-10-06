@@ -21,6 +21,7 @@ class CommentsVC: UIViewController {
     var contentRef : DocumentReference!
     let fireStore = Firestore.firestore()
     var userName : String!
+    var commentsListener : ListenerRegistration!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,22 @@ class CommentsVC: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        commentsListener = fireStore.collection(Contents).document(selectedContent.documentId).collection(Comments)
+            .order(by: DateOfUpload, descending: false)
+            .addSnapshotListener({ (snapshot, error) in
+                
+                guard let snapshot = snapshot else {
+                    debugPrint("Yorumlar Listelenemedi: \(error?.localizedDescription)")
+                    return
+                }
+                
+                self.comments.removeAll()
+                self.comments = Comment.fetchComments(snapshot: snapshot)
+                self.tableView.reloadData()
+            })
+    }
 
     @IBAction func btnAddCommentPressed(_ sender: Any) {
         
