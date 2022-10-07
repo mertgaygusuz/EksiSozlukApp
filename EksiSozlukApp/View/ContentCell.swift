@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import FirebaseAuth
 
 class ContentCell: UITableViewCell {
     
@@ -18,8 +19,10 @@ class ContentCell: UITableViewCell {
     @IBOutlet weak var imgLike: UIImageView!
     @IBOutlet weak var lblNumberOfLikes: UILabel!
     @IBOutlet weak var lblNumberOfComments: UILabel!
+    @IBOutlet weak var imgOptions: UIImageView!
     
     var selectedContent : Content!
+    var delegate : ContentDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,14 +34,11 @@ class ContentCell: UITableViewCell {
 
     @objc func imgLikeTapped() {
         
-        //Firestore.firestore().collection(Contents).document(selectedContent.documentId).setData(
-            //[NumberOfLikes : selectedContent.numberOfLikes + 1], merge: true)
-        
         Firestore.firestore().document("Contents/\(selectedContent.documentId!)").updateData(
             [NumberOfLikes : selectedContent.numberOfLikes + 1])
     }
     
-    func setView(content: Content) {
+    func setView(content: Content, delegate: ContentDelegate?) {
         selectedContent = content
         lblUserName.text = content.userName
         lblContentText.text = content.contentText
@@ -48,8 +48,26 @@ class ContentCell: UITableViewCell {
         dateFormat.dateFormat = "dd.MM.YYYY, hh:mm"
         let dateOfUpload = dateFormat.string(from: content.dateOfUpload)
         lblDateOfUpload.text = dateOfUpload
-        
         lblNumberOfComments.text = "\(content.numberOfComments ?? 0)"
+        
+        imgOptions.isHidden = true
+        self.delegate = delegate
+        
+        if content.userId == Auth.auth().currentUser?.uid {
+            
+            imgOptions.isHidden = false
+            imgOptions.isUserInteractionEnabled = true
+            
+            let tap = UITapGestureRecognizer(target: self, action: #selector(imgContentOptionsPressed))
+            imgOptions.addGestureRecognizer(tap)
+        }
     }
+    
+    @objc func imgContentOptionsPressed() {
+        delegate?.optionsContentPressed(content: selectedContent)
+    }
+}
 
+protocol ContentDelegate {
+    func optionsContentPressed(content: Content)
 }

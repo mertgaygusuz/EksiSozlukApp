@@ -33,6 +33,8 @@ class CommentsVC: UIViewController {
         if let name = Auth.auth().currentUser?.displayName {
             userName = name
         }
+        
+        self.view.setKeyboard()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,7 +78,8 @@ class CommentsVC: UIViewController {
             transection.setData([
                 CommentText : commentText,
                 DateOfUpload : FieldValue.serverTimestamp(),
-                UserName : self.userName
+                UserName : self.userName,
+                UserId : Auth.auth().currentUser?.uid ?? ""
             ], forDocument: newCommentRef)
             
             return nil
@@ -102,9 +105,16 @@ extension CommentsVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as? CommentCell {
-            cell.setView(comment: comments[indexPath.row])
+            cell.setView(comment: comments[indexPath.row], delegate: self)
             return cell
         }
         return UITableViewCell()
+    }
+}
+
+extension CommentsVC : CommentDelegate {
+    
+    func optionsCommentPressed(comment: Comment) {
+        print("Seçilen Yorum: \(comment.commentText!)")
     }
 }

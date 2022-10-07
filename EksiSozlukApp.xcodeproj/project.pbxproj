@@ -12,6 +12,7 @@
 		9D46BC7428EE055B00E2311F /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46BC7328EE055B00E2311F /* CommentCell.swift */; };
 		9D46BC7628EE060E00E2311F /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46BC7528EE060E00E2311F /* Comment.swift */; };
 		9D724B6028E62F2D008ACF29 /* AddContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D724B5F28E62F2D008ACF29 /* AddContentVC.swift */; };
+		9D8C3BE228F0B11C00F0CB47 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8C3BE128F0B11C00F0CB47 /* Keyboard.swift */; };
 		9D91801528E85EA6009F2939 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D91801428E85EA6009F2939 /* Content.swift */; };
 		9D91801728E86058009F2939 /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D91801628E86058009F2939 /* ContentCell.swift */; };
 		9D9B7B5E28E4CEB20070A810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9B7B5D28E4CEB20070A810 /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 		9D46BC7328EE055B00E2311F /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		9D46BC7528EE060E00E2311F /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		9D724B5F28E62F2D008ACF29 /* AddContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContentVC.swift; sourceTree = "<group>"; };
+		9D8C3BE128F0B11C00F0CB47 /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		9D91801428E85EA6009F2939 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		9D91801628E86058009F2939 /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 		9D9B7B5A28E4CEB20070A810 /* EksiSozlukApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EksiSozlukApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +102,7 @@
 				9DEAB81E28E8564600D610C2 /* Constants.swift */,
 				9D91801428E85EA6009F2939 /* Content.swift */,
 				9D46BC7528EE060E00E2311F /* Comment.swift */,
+				9D8C3BE128F0B11C00F0CB47 /* Keyboard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			files = (
 				9D9B7B6228E4CEB20070A810 /* MainVC.swift in Sources */,
 				9DFC4CC528EB51AE007F8897 /* CreateUserVC.swift in Sources */,
+				9D8C3BE228F0B11C00F0CB47 /* Keyboard.swift in Sources */,
 				9D9B7B5E28E4CEB20070A810 /* AppDelegate.swift in Sources */,
 				9D0AAD1428ECABEE0079A545 /* CommentsVC.swift in Sources */,
 				9D91801528E85EA6009F2939 /* Content.swift in Sources */,

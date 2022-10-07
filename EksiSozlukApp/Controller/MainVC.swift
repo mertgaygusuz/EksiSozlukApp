@@ -137,7 +137,7 @@ extension MainVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell", for: indexPath) as? ContentCell {
-            cell.setView(content: contents[indexPath.row])
+            cell.setView(content: contents[indexPath.row], delegate: self)
             return cell
         } else {
             return UITableViewCell()
@@ -150,6 +150,10 @@ extension MainVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    
 }
 
+extension MainVC : ContentDelegate {
+    func optionsContentPressed(content: Content) {
+        print("Seçilen başlık : \(content.contentText!)")
+    }
+}

@@ -280,14 +280,19 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="circleDark" translatesAutoresizingMaskIntoConstraints="NO" id="cje-1a-jI4">
+                                                    <rect key="frame" x="348" y="5" width="30" height="30"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="MZt-6W-ICR" firstAttribute="top" secondItem="zlj-rW-bkc" secondAttribute="bottom" constant="8" id="9VV-y4-BXs"/>
+                                                <constraint firstAttribute="trailing" secondItem="cje-1a-jI4" secondAttribute="trailing" constant="15" id="CDm-pB-p5c"/>
                                                 <constraint firstItem="BWz-CU-SJ4" firstAttribute="centerY" secondItem="zlj-rW-bkc" secondAttribute="centerY" id="CM3-Lv-BoW"/>
                                                 <constraint firstItem="fc9-y5-RBQ" firstAttribute="leading" secondItem="C7o-Yf-lwz" secondAttribute="leadingMargin" constant="2" id="MgO-AU-zgH"/>
                                                 <constraint firstItem="fc9-y5-RBQ" firstAttribute="top" secondItem="MZt-6W-ICR" secondAttribute="bottom" constant="8.5" id="Xsv-CU-ltF"/>
                                                 <constraint firstItem="zlj-rW-bkc" firstAttribute="top" secondItem="C7o-Yf-lwz" secondAttribute="topMargin" id="Z7c-cw-WT6"/>
                                                 <constraint firstItem="zlj-rW-bkc" firstAttribute="leading" secondItem="C7o-Yf-lwz" secondAttribute="leadingMargin" id="c6Q-F9-0fy"/>
+                                                <constraint firstItem="cje-1a-jI4" firstAttribute="centerY" secondItem="BWz-CU-SJ4" secondAttribute="centerY" id="h3C-lM-mev"/>
                                                 <constraint firstItem="BWz-CU-SJ4" firstAttribute="leading" secondItem="zlj-rW-bkc" secondAttribute="trailing" constant="8" id="iHr-1F-45O"/>
                                                 <constraint firstItem="MZt-6W-ICR" firstAttribute="leading" secondItem="C7o-Yf-lwz" secondAttribute="leadingMargin" id="ijh-FO-hwZ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="MZt-6W-ICR" secondAttribute="trailing" id="jfK-Pd-rN1"/>
@@ -296,6 +301,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imgLike" destination="4eV-oM-21T" id="ILM-Ad-Ary"/>
+                                            <outlet property="imgOptions" destination="cje-1a-jI4" id="Skl-cc-sU6"/>
                                             <outlet property="lblContentText" destination="MZt-6W-ICR" id="NGg-UV-Y1h"/>
                                             <outlet property="lblDateOfUpload" destination="BWz-CU-SJ4" id="t56-j8-fR1"/>
                                             <outlet property="lblNumberOfComments" destination="zmW-Ip-XNW" id="O6P-U3-Zb9"/>
@@ -339,7 +345,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057.2519083969464" y="-28.87323943661972"/>
+            <point key="canvasLocation" x="1055.7251908396945" y="-28.87323943661972"/>
         </scene>
         <!--CommentsVC-->
         <scene sceneID="UXD-JE-IYW">
@@ -409,6 +415,9 @@
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="circleDark" translatesAutoresizingMaskIntoConstraints="NO" id="A7d-ZN-dWW">
+                                                    <rect key="frame" x="358" y="14" width="30" height="30"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="2zc-uq-VoJ" firstAttribute="top" secondItem="Bq4-EY-CK9" secondAttribute="bottom" constant="10" id="0Ba-bL-scI"/>
@@ -416,12 +425,15 @@
                                                 <constraint firstItem="MK0-dW-YQc" firstAttribute="leading" secondItem="Bq4-EY-CK9" secondAttribute="trailing" constant="12" id="86t-FY-Rdx"/>
                                                 <constraint firstItem="Bq4-EY-CK9" firstAttribute="top" secondItem="m8Q-Cv-YAz" secondAttribute="topMargin" constant="8" id="Khl-5G-4rd"/>
                                                 <constraint firstItem="MK0-dW-YQc" firstAttribute="centerY" secondItem="Bq4-EY-CK9" secondAttribute="centerY" id="XYz-Ej-ISA"/>
+                                                <constraint firstItem="A7d-ZN-dWW" firstAttribute="centerY" secondItem="MK0-dW-YQc" secondAttribute="centerY" id="hKh-zz-9Fl"/>
                                                 <constraint firstItem="Bq4-EY-CK9" firstAttribute="leading" secondItem="m8Q-Cv-YAz" secondAttribute="leadingMargin" id="qxK-St-dMa"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="2zc-uq-VoJ" secondAttribute="trailing" id="thE-Oe-SnG"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="2zc-uq-VoJ" secondAttribute="bottom" constant="7" id="wcC-Fb-iIK"/>
+                                                <constraint firstItem="A7d-ZN-dWW" firstAttribute="trailing" secondItem="m8Q-Cv-YAz" secondAttribute="trailingMargin" constant="15" id="yo7-cQ-IBC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="imgOptions" destination="A7d-ZN-dWW" id="g4n-Tv-j8r"/>
                                             <outlet property="lblComment" destination="2zc-uq-VoJ" id="hTm-xW-TNq"/>
                                             <outlet property="lblDate" destination="MK0-dW-YQc" id="Upv-mx-1K0"/>
                                             <outlet property="lblUserName" destination="Bq4-EY-CK9" id="JRx-bv-uTN"/>
@@ -564,6 +576,7 @@
     </scenes>
     <resources>
         <image name="addEntry" width="21" height="24"/>
+        <image name="circleDark" width="30" height="30"/>
         <image name="comment" width="26" height="22"/>
         <image name="selectedStar" width="20" height="19"/>
         <systemColor name="systemBackgroundColor">

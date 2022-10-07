@@ -17,14 +17,16 @@ class Content {
     private(set) var numberOfComments : Int!
     private(set) var numberOfLikes : Int!
     private(set) var documentId : String!
+    private(set) var userId : String!
     
-    init(userName: String, dateOfUpload: Date, contentText: String, numberOfComments: Int, numberOfLikes: Int, documentId: String) {
+    init(userName: String, dateOfUpload: Date, contentText: String, numberOfComments: Int, numberOfLikes: Int, documentId: String, userId: String) {
         self.userName = userName
         self.dateOfUpload = dateOfUpload
         self.contentText = contentText
         self.numberOfComments = numberOfComments
         self.numberOfLikes = numberOfLikes
         self.documentId = documentId
+        self.userId = userId
     }
     
     class func fetchContent(snapshot : QuerySnapshot?) -> [Content] {
@@ -43,8 +45,9 @@ class Content {
             let numberOfComments = data[NumberOfComments] as? Int ?? 0
             let numberOfLikes = data[NumberOfLikes] as? Int ?? 0
             let documentId = document.documentID
+            let userId = data[UserId] as? String ?? ""
             
-            let newContent = Content(userName: userName, dateOfUpload: dateOfUpload, contentText: contentText, numberOfComments: numberOfComments, numberOfLikes: numberOfLikes, documentId: documentId)
+            let newContent = Content(userName: userName, dateOfUpload: dateOfUpload, contentText: contentText, numberOfComments: numberOfComments, numberOfLikes: numberOfLikes, documentId: documentId, userId: userId)
             contents.append(newContent)
         }
         return contents

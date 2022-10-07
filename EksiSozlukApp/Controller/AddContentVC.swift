@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import FirebaseAuth
 
 class AddContentVC: UIViewController {
     
@@ -63,7 +64,8 @@ class AddContentVC: UIViewController {
             NumberOfComments : 0,
             ContentText : txtContent.text,
             DateOfUpload : FieldValue.serverTimestamp(),
-            UserName : txtUserName.text
+            UserName : txtUserName.text,
+            UserId : Auth.auth().currentUser?.uid ?? ""
         ]) { (error) in
             
             if let error = error {
