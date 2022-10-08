@@ -115,6 +115,49 @@ extension CommentsVC : UITableViewDelegate, UITableViewDataSource {
 extension CommentsVC : CommentDelegate {
     
     func optionsCommentPressed(comment: Comment) {
-        print("Seçilen Yorum: \(comment.commentText!)")
+      
+        let alert = UIAlertController(title: "Düzenle", message: "Yorumu Düzenle veya Sil", preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Sil", style: .default) { (action) in
+            
+            self.fireStore.runTransaction({ (transection, error) -> Any? in
+                
+                let selectedContentRecord : DocumentSnapshot
+                
+                do  {
+                    try selectedContentRecord = transection.getDocument(self.fireStore.collection(Contents).document(self.selectedContent.documentId))
+                    
+                } catch let error as NSError{
+                    debugPrint("Başlık bulunamadı : \(error.localizedDescription)")
+                    return nil
+                }
+                
+                guard let numberOfOldComments = (selectedContentRecord.data()?[NumberOfComments] as? Int) else { return nil }
+                transection.updateData([NumberOfComments : numberOfOldComments - 1], forDocument: self.contentRef)
+                
+                let deletedCommentRef = self.fireStore.collection(Contents).document(self.selectedContent.documentId).collection(Comments).document(comment.documentId)
+                transection.deleteDocument(deletedCommentRef)
+                return nil
+                
+            }) { (object, error) in
+                
+                if let error = error {
+                    debugPrint("Yorum silinemedi: \(error.localizedDescription)")
+                } else {
+                    alert.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+        
+        let editAction = UIAlertAction(title: "Düzenle", style: .default) { (action) in
+            //düzenlenecek
+        }
+        
+        let cancelAction = UIAlertAction(title: "Vazgeç", style: .cancel, handler: nil)
+        
+        alert.addAction(deleteAction)
+        alert.addAction(editAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
 }
