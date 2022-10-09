@@ -15,26 +15,31 @@ class AddContentVC: UIViewController {
     
     
     @IBOutlet weak var segmentCategories: UISegmentedControl!
-    
     @IBOutlet weak var txtUserName: UITextField!
-    
     @IBOutlet weak var txtContent: UITextView!
-    
     @IBOutlet weak var btnShared: UIButton!
     
-    let placeholderText = "Fikrinizi belirtin..."
+
+    let placeholderText = "Başlık ismini belirtin..."
     var selectedCategory = "Eğlence"
-    
+    var userName : String = "Ziyaretçi"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         btnShared.layer.cornerRadius = 5
         txtContent.layer.cornerRadius = 7
-        
         txtContent.text = placeholderText
         txtContent.textColor = .lightGray
         txtContent.delegate = self
+        txtUserName.isEnabled = false
+        
+        if let name = Auth.auth().currentUser?.displayName {
+            userName = name
+            txtUserName.text = userName
+        }
+        
+        
     }
     
 
@@ -56,7 +61,8 @@ class AddContentVC: UIViewController {
     
     @IBAction func btnSharedPressed(_ sender: Any) {
         
-        guard let userName = txtUserName.text else { return }
+        guard txtContent.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty != true
+        else { return }
         
         Firestore.firestore().collection(Contents).addDocument(data: [
             Category : selectedCategory,
@@ -64,7 +70,7 @@ class AddContentVC: UIViewController {
             NumberOfComments : 0,
             ContentText : txtContent.text,
             DateOfUpload : FieldValue.serverTimestamp(),
-            UserName : txtUserName.text,
+            UserName : userName,
             UserId : Auth.auth().currentUser?.uid ?? ""
         ]) { (error) in
             

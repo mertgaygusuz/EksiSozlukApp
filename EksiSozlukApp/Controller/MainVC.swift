@@ -154,6 +154,64 @@ extension MainVC : UITableViewDelegate, UITableViewDataSource {
 
 extension MainVC : ContentDelegate {
     func optionsContentPressed(content: Content) {
-        print("Seçilen başlık : \(content.contentText!)")
+        
+        let alert = UIAlertController(title: "Sil", message: "Başlığı silmek mi istiyorsun?", preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Başlığı sil", style: .default) { (action) in
+            //fikir silinecek
+            let commentsCollRef = Firestore.firestore().collection(Contents).document(content.documentId).collection(Comments)
+            
+            self.deleteComments(commentCollection: commentsCollRef, completion: { (error) in
+                
+                if let error = error {
+                    debugPrint("Başlığa ait yorumlar silinemedi: \(error.localizedDescription)")
+                } else {
+                    
+                    Firestore.firestore().collection(Contents).document(content.documentId).delete { (error) in
+                        if let error = error {
+                            debugPrint("Başlık silinemedi: \(error.localizedDescription)")
+                        } else {
+                            alert.dismiss(animated: true, completion: nil)
+                        }
+                    }
+                }
+            })
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Vazgeç", style: .cancel, handler: nil)
+        
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func deleteComments(commentCollection : CollectionReference, numberOfRecordsToBeDeleted : Int = 100, completion : @escaping (Error?) -> ()) {
+        
+        commentCollection.limit(to: numberOfRecordsToBeDeleted).getDocuments { (recordSets, error) in
+            
+            guard let recordSets = recordSets else {
+                completion(error)
+                return
+            }
+            
+            guard recordSets.count > 0 else {
+                completion(nil)
+                return
+            }
+            
+            let batch = commentCollection.firestore.batch()
+            
+            recordSets.documents.forEach { batch.deleteDocument($0.reference)}
+            
+            batch.commit { (batchError) in
+                if let error = batchError {
+                    completion(error)
+                } else {
+                    self.deleteComments(commentCollection: commentCollection, numberOfRecordsToBeDeleted: numberOfRecordsToBeDeleted,
+                        completion: completion)
+                }
+            }
+        }
     }
 }

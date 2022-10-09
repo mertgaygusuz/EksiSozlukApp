@@ -458,11 +458,66 @@
                     <connections>
                         <outlet property="tableView" destination="qxR-DN-Bq9" id="Gxh-gN-Jzi"/>
                         <outlet property="txtComment" destination="ieC-7j-EVK" id="tPf-Zn-CHE"/>
+                        <segue destination="PcR-68-PVu" kind="show" identifier="EditCommentSegue" id="oEo-sv-tBd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fdV-jA-krQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1885" y="286"/>
+        </scene>
+        <!--Edit CommentVC-->
+        <scene sceneID="BpM-bs-G1s">
+            <objects>
+                <viewController id="PcR-68-PVu" customClass="EditCommentVC" customModule="EksiSozlukApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Tn-oq-3xv">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mpd-4e-sfl">
+                                <rect key="frame" x="20" y="128" width="353" height="160"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.10047599337748335" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="KgP-VK-VWE"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aji-2P-5Nm">
+                                <rect key="frame" x="134" y="308" width="125" height="40"/>
+                                <color key="backgroundColor" red="0.56078433989999998" green="0.74901962280000001" blue="0.36078432199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="hKr-hW-3UV"/>
+                                    <constraint firstAttribute="height" constant="40" id="x2A-97-u1H"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Güncelle"/>
+                                <connections>
+                                    <action selector="btnEditPressed:" destination="PcR-68-PVu" eventType="touchUpInside" id="mK5-BA-GPD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Aam-JB-hFx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mpd-4e-sfl" firstAttribute="leading" secondItem="Aam-JB-hFx" secondAttribute="leading" constant="20" id="6Y0-hr-4nt"/>
+                            <constraint firstItem="aji-2P-5Nm" firstAttribute="centerX" secondItem="0Tn-oq-3xv" secondAttribute="centerX" id="87s-gO-eOl"/>
+                            <constraint firstItem="Aam-JB-hFx" firstAttribute="trailing" secondItem="mpd-4e-sfl" secondAttribute="trailing" constant="20" id="K5U-N2-009"/>
+                            <constraint firstItem="mpd-4e-sfl" firstAttribute="top" secondItem="Aam-JB-hFx" secondAttribute="top" constant="25" id="Lg8-eM-Klf"/>
+                            <constraint firstItem="aji-2P-5Nm" firstAttribute="top" secondItem="mpd-4e-sfl" secondAttribute="bottom" constant="20" id="YAY-2x-ull"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Khb-7h-v06"/>
+                    <connections>
+                        <outlet property="btnEdit" destination="aji-2P-5Nm" id="2bM-95-UzD"/>
+                        <outlet property="txtComment" destination="mpd-4e-sfl" id="Kha-xs-Dmm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RDy-VP-vuw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2741" y="286"/>
         </scene>
         <!--Add ContentVC-->
         <scene sceneID="vWG-q3-4Vh">

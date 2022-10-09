@@ -56,7 +56,8 @@ class CommentsVC: UIViewController {
 
     @IBAction func btnAddCommentPressed(_ sender: Any) {
         
-        guard let commentText = txtComment.text else { return }
+        guard let commentText = txtComment.text, txtComment.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty != true
+        else { return }
         
         fireStore.runTransaction({ (transection, error) -> Any? in
             
@@ -93,6 +94,19 @@ class CommentsVC: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "EditCommentSegue" {
+            
+            if let targetVC = segue.destination as? EditCommentVC {
+                
+                if let commentData = sender as? (selectedComment: Comment, selectedContent: Content) {
+                    
+                    targetVC.commentData = commentData
+                }
+            }
+        }
+    }
 
 }
 
@@ -150,7 +164,9 @@ extension CommentsVC : CommentDelegate {
         }
         
         let editAction = UIAlertAction(title: "Düzenle", style: .default) { (action) in
-            //düzenlenecek
+            
+            self.performSegue(withIdentifier: "EditCommentSegue", sender: (comment, self.selectedContent))
+            self.dismiss(animated: true, completion: nil)
         }
         
         let cancelAction = UIAlertAction(title: "Vazgeç", style: .cancel, handler: nil)
