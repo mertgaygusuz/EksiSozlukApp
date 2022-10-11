@@ -23,3 +23,5 @@ let UserId = "UserId"
 
 let Comments = "Comments"
 let CommentText = "CommentText"
+
+let LikeRef = "UsersWhoLike"

@@ -23,6 +23,8 @@ class ContentCell: UITableViewCell {
     
     var selectedContent : Content!
     var delegate : ContentDelegate?
+    let fireStore = Firestore.firestore()
+    var likes = [Like]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,10 +34,59 @@ class ContentCell: UITableViewCell {
         imgLike.isUserInteractionEnabled = true
     }
 
+    func fetchLikes() {
+        
+        let likeQuery = fireStore.collection(Contents).document(self.selectedContent.documentId).collection(LikeRef)
+            .whereField(UserId, isEqualTo: Auth.auth().currentUser?.uid ?? "")
+        
+        likeQuery.getDocuments { (snapshot, error) in
+            self.likes = Like.fetchLikes(snapshot: snapshot)
+            
+            if self.likes.count > 0 {
+                self.imgLike.image = UIImage(named: "selectedStar")
+            } else {
+                self.imgLike.image = UIImage(named: "transparentStar")
+            }
+        }
+    }
+    
     @objc func imgLikeTapped() {
         
-        Firestore.firestore().document("Contents/\(selectedContent.documentId!)").updateData(
-            [NumberOfLikes : selectedContent.numberOfLikes + 1])
+        fireStore.runTransaction({ (transaction, errorPointer) -> Any? in
+            
+            let selectedContentRecord : DocumentSnapshot
+            
+            do {
+                try selectedContentRecord = transaction.getDocument(self.fireStore.collection(Contents).document(self.selectedContent.documentId))
+            } catch let error as NSError{
+                debugPrint("Beğenilemedi: \(error.localizedDescription)")
+                return nil
+            }
+            
+            guard let oldLikes = (selectedContentRecord.data()?[NumberOfLikes] as? Int) else { return nil }
+            
+            let selectedContentRef = self.fireStore.collection(Contents).document(self.selectedContent.documentId)
+            
+            if self.likes.count > 0 {
+                
+                transaction.updateData([NumberOfLikes : oldLikes - 1], forDocument: selectedContentRef)
+                let oldLikeRef = self.fireStore.collection(Contents).document(self.selectedContent.documentId).collection(LikeRef).document(self.likes[0].documentId)
+                transaction.deleteDocument(oldLikeRef)
+            } else {
+                
+                transaction.updateData([NumberOfLikes : oldLikes + 1], forDocument: selectedContentRef)
+                let newLikeRef = self.fireStore.collection(Contents).document(self.selectedContent.documentId).collection(LikeRef).document()
+                transaction.setData([UserId : Auth.auth().currentUser?.uid ?? ""], forDocument: newLikeRef)
+            }
+            
+            
+            return nil
+        }) { (object, error) in
+            
+            if let error = error {
+                debugPrint("Beğenilemedi: \(error.localizedDescription)")
+            }
+        }
     }
     
     func setView(content: Content, delegate: ContentDelegate?) {
@@ -61,6 +112,8 @@ class ContentCell: UITableViewCell {
             let tap = UITapGestureRecognizer(target: self, action: #selector(imgContentOptionsPressed))
             imgOptions.addGestureRecognizer(tap)
         }
+        
+        fetchLikes()
     }
     
     @objc func imgContentOptionsPressed() {
