@@ -29,7 +29,7 @@ class Content {
         self.userId = userId
     }
     
-    class func fetchContent(snapshot : QuerySnapshot?) -> [Content] {
+    class func fetchContent(snapshot : QuerySnapshot?, contentsOfTheDay : Bool = false) -> [Content] {
         
         var contents = [Content]()
         
@@ -41,6 +41,11 @@ class Content {
             let userName = data[UserName] as? String ?? "Ziyaretçi"
             let ts = data[DateOfUpload] as? Timestamp ?? Timestamp()
             let dateOfUpload = ts.dateValue()
+            
+            if contentsOfTheDay == true && Calendar.current.isDateInToday(dateOfUpload) == false {
+                continue
+            }
+            
             let contentText = data[ContentText] as? String ?? ""
             let numberOfComments = data[NumberOfComments] as? Int ?? 0
             let numberOfLikes = data[NumberOfLikes] as? Int ?? 0

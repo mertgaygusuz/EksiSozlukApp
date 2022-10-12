@@ -56,13 +56,13 @@ class MainVC: UIViewController {
         if selectedCategory == Categories.Populer.rawValue {
             
             contentsListener = contentsCollectionRef
-                .order(by: DateOfUpload, descending: true)
+                .order(by: NumberOfLikes, descending: true)
                 .addSnapshotListener { (snapshot, error) in
                 if let error = error {
                     debugPrint("Entryleri getirirken hata meydana geldi: \(error.localizedDescription)")
                 } else {
                     self.contents.removeAll()
-                    self.contents = Content.fetchContent(snapshot: snapshot)
+                    self.contents = Content.fetchContent(snapshot: snapshot, contentsOfTheDay: true)
                     self.tableView.reloadData()
                 }
                 
@@ -158,25 +158,34 @@ extension MainVC : ContentDelegate {
         let alert = UIAlertController(title: "Sil", message: "Başlığı silmek mi istiyorsun?", preferredStyle: .actionSheet)
         
         let deleteAction = UIAlertAction(title: "Başlığı sil", style: .default) { (action) in
-            //fikir silinecek
+            
             let commentsCollRef = Firestore.firestore().collection(Contents).document(content.documentId).collection(Comments)
             
-            self.deleteComments(commentCollection: commentsCollRef, completion: { (error) in
+            let likesCollRef = Firestore.firestore().collection(Contents).document(content.documentId).collection(LikeRef)
+            
+            self.massDeleteRecord(collectionRef: likesCollRef, completion: { (error) in
                 
                 if let error = error {
-                    debugPrint("Başlığa ait yorumlar silinemedi: \(error.localizedDescription)")
+                    debugPrint("Başlığa ait beğeniler silinemedi: \(error.localizedDescription)")
                 } else {
                     
-                    Firestore.firestore().collection(Contents).document(content.documentId).delete { (error) in
+                    self.massDeleteRecord(collectionRef: commentsCollRef, completion: { (error) in
+                        
                         if let error = error {
-                            debugPrint("Başlık silinemedi: \(error.localizedDescription)")
+                            debugPrint("Başlığa ait yorumlar silinemedi: \(error.localizedDescription)")
                         } else {
-                            alert.dismiss(animated: true, completion: nil)
+                            
+                            Firestore.firestore().collection(Contents).document(content.documentId).delete { (error) in
+                                if let error = error {
+                                    debugPrint("Başlık silinemedi: \(error.localizedDescription)")
+                                } else {
+                                    alert.dismiss(animated: true, completion: nil)
+                                }
+                            }
                         }
-                    }
+                    })
                 }
             })
-            
         }
         
         let cancelAction = UIAlertAction(title: "Vazgeç", style: .cancel, handler: nil)
@@ -186,9 +195,9 @@ extension MainVC : ContentDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-    func deleteComments(commentCollection : CollectionReference, numberOfRecordsToBeDeleted : Int = 100, completion : @escaping (Error?) -> ()) {
+    func massDeleteRecord(collectionRef : CollectionReference, numberOfRecordsToBeDeleted : Int = 100, completion : @escaping (Error?) -> ()) {
         
-        commentCollection.limit(to: numberOfRecordsToBeDeleted).getDocuments { (recordSets, error) in
+        collectionRef.limit(to: numberOfRecordsToBeDeleted).getDocuments { (recordSets, error) in
             
             guard let recordSets = recordSets else {
                 completion(error)
@@ -200,7 +209,7 @@ extension MainVC : ContentDelegate {
                 return
             }
             
-            let batch = commentCollection.firestore.batch()
+            let batch = collectionRef.firestore.batch()
             
             recordSets.documents.forEach { batch.deleteDocument($0.reference)}
             
@@ -208,7 +217,7 @@ extension MainVC : ContentDelegate {
                 if let error = batchError {
                     completion(error)
                 } else {
-                    self.deleteComments(commentCollection: commentCollection, numberOfRecordsToBeDeleted: numberOfRecordsToBeDeleted,
+                    self.massDeleteRecord(collectionRef: collectionRef, numberOfRecordsToBeDeleted: numberOfRecordsToBeDeleted,
                         completion: completion)
                 }
             }
