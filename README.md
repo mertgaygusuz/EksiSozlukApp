@@ -18,5 +18,5 @@ users can become a member and open a topic, enter an entry in the opened heading
 ```
 
 # Screens
-<img height = 400 width = full src="images/1.png">  <img height = 400 width = full src="images/2.png"> <img height = 400 width = full src="images/3.png">
- <img height = 400 width = full src="images/4.png"><img height = 400 width = full src="images/5.png"><img height = 400 width = full src="images/6.png">
+<img height = 500 width = full src="images/1.png">  <img height = 500 width = full src="images/2.png"> <img height = 500 width = full src="images/3.png">
+ <img height = 500 width = full src="images/4.png"> <img height = 500 width = full src="images/5.png"> <img height = 500 width = full src="images/6.png">
